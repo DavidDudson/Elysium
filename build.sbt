@@ -1,4 +1,4 @@
-name := "scala_meta_example"
+name := "scala_meta_example_paradise"
 
 lazy val commonSettings = Seq(
   version := "1.0",
