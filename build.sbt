@@ -8,7 +8,7 @@ lazy val commonSettings = Seq(
   addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M3" cross CrossVersion.full)
 )
 
-lazy val core = (project in file("core"))
+lazy val root = (project in file("."))
     .settings(commonSettings:_*)
     .dependsOn(macros)
 
@@ -17,6 +17,3 @@ lazy val macros = (project in file("macros"))
     .settings(
       libraryDependencies += "org.scalameta" %% "scalameta" % "1.0.0"
     )
-
-lazy val root = (project in file(".")).
-    aggregate(macros, core)
