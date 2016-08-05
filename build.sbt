@@ -1,4 +1,4 @@
-name := "scala_meta_example_paradise"
+name := "Inline Macros"
 
 lazy val commonSettings = Seq(
   version := "1.0",

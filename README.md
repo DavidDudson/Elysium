@@ -1,13 +1,17 @@
-Project to replicate example "Hello World" application from @xeno-by at Scala days" Berlin (https://youtu.be/IPnd_SZJ1nM?t=1219)
+**Inline Macros**
 
-This project specifically targets the new "inline" macros.
+This is a fully experimental library to show the usefulness of macros/meta-programming in scala.
 
-**To Run**
+There seems to be an apprehension towards macros in the scala community.
 
-Via Sbt:
- - sbt run
- 
-Via IntellIj:
- - Create a run configuration with the following
-   - Classpath of Module: "root"
-   - Main method: "Main" - Note: This will show an error because IntelliJ cant detect expanded macros yet*
+This should not be the case, with inline macros the learning curve is much much lower.
+
+The goal is to eventually publish this as a library (Just the "macros" section of this project).
+
+I want this library to show lots of possible uses for macros and meta-programming without limitations.
+
+** Navigating **
+
+ - Macros -> macros/src/main
+ - Macro Tests -> macros/src/tests
+ - Usages/Experiments -> src/main (1 file for every macro in the macros package)
