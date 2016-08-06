@@ -10,7 +10,7 @@ The goal is to eventually publish this as a library (Just the "macros" section o
 
 I want this library to show lots of possible uses for macros and meta-programming without limitations.
 
-** Navigating **
+**Navigating**
 
  - Macros -> macros/src/main
  - Macro Tests -> macros/src/tests
