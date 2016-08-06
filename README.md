@@ -1,3 +1,5 @@
+![Build Status](https://travis-ci.org/DavidDudson/InlineMacros.svg?branch=master) ![codecov](https://codecov.io/gh/DavidDudson/InlineMacros/branch/master/graph/badge.svg?bloop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/696434ec2419482dbd3c95b29c28366f)](https://www.codacy.com/app/davidjohndudson/InlineMacros?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DavidDudson/InlineMacros&amp;utm_campaign=Badge_Grade)
+
 **Inline Macros**
 
 This is a fully experimental library to show the usefulness of macros/meta-programming in scala.
