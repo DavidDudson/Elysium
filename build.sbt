@@ -4,8 +4,9 @@ lazy val commonSettings = Seq(
   version := "1.0",
   scalaVersion := "2.11.8",
   scalacOptions += "-Xplugin-require:macroparadise",
-  resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
-  resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/",
+  resolvers += Resolver.typesafeRepo("releases"),
+  resolvers += Resolver.sonatypeRepo("releases"),
+  resolvers += Resolver.sonatypeRepo("snapshots"),
   addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M3" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4",
   coverageHighlighting := false
