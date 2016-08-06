@@ -5,12 +5,15 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.11.8",
   scalacOptions += "-Xplugin-require:macroparadise",
   resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
+  resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/",
   addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M3" cross CrossVersion.full),
-  libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4"
+  libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4",
+  coverageHighlighting := false
 )
 
 lazy val root = (project in file("."))
     .settings(commonSettings:_*)
+    .settings(coverageEnabled := true)
     .dependsOn(macros)
 
 lazy val macros = (project in file("macros"))
