@@ -2,11 +2,11 @@ package nz.daved
 
 import java.io.{ByteArrayOutputStream, PrintStream}
 
-import org.scalatest.{FunSuite, Matchers}
+import org.scalatest.{FlatSpec, FunSuite, Matchers}
 
-class MainTest extends FunSuite with Matchers {
+class MainTest extends FlatSpec with Matchers {
 
-  test("nz.daved.Main method should print hello world") {
+  "nz.daved.Main method" should "print hello world" in {
     val out: ByteArrayOutputStream = new ByteArrayOutputStream()
     val ps: PrintStream = new PrintStream(out)
     Console.withOut(ps) {
