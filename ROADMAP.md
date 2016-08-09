@@ -112,11 +112,15 @@
 - [ ] @TemplateMethod
 - [ ] @Visitor
 
+### Constraints 
+- [ ] Commutative
+- [ ] Associative
+- [ ] Distributive
+
 ### FP Design patterns - Unsure if these will be marker or behavioral
 - [ ] @Typeclass
 - [ ] @Monad
 - [ ] @Monoid
-
 
 ### Potential Library Dependants
 - [ ] Scalaz:@Show - Generate a Show typeclass for this object
@@ -126,6 +130,8 @@
 
 ### Other
 - [ ] @Enum - A scala enum type, the way it should have been
+- [ ] @Refine(a, b) - generates "def b(params) = @inline super.a(params)"
+- [ ] @Symbolic(symbol) - generate a method with the symbolic operator
 
 ## Def Macros
 - TBD
