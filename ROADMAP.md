@@ -20,6 +20,7 @@
 - [ ] @Spy - Keeps track of updates to an object
 - [ ] @SpyPrint - Prints updates to a class/object
 - [ ] @Mock - Returns a constant rather then running the function for debugging purposes
+- [ ] @MockIf - Same as mock except takes a boolean supplier
 - [ ] @Hide - Unit methods only, if the flag is true, method will be replace with noop.
 - [ ] @Time - Prints the execution time of a method
 - [ ] @PrintOnExecute - Prints the method name and parameters on execution
@@ -61,7 +62,7 @@
 - [ ] @Empty - Verify the object is empty
 - [ ] @Immutable - Verify only val's, no vars
 - [ ] @Struct - Verify no behavior only getters and setters
-- [ ] @Behavior - Verify no fields only behavioral implications
+- [ ] @NoFields - Verify no fields only behavioral implications
 - [ ] @NoNullItems - Verify a traversable has no nulls in it
 - [ ] @Pure - Verify no side effects (Is this even possible without the scala effect api)
 
@@ -81,6 +82,41 @@
 ### Testing
 - [ ] @TestOnly - Remove the method/class in production?
 - [ ] @VisibleForTesting - Semi-Marker - Verify that the modifier is not currently private (thus unneccesary)
+
+### Structural Design Patterns - Unsure if these will be marker or behavioral or exist at all
+- [ ] @Decorator
+- [ ] @Delegate
+- [ ] @Adapter
+- [ ] @Facade
+- [ ] @Flyweight
+- [ ] @Composite
+- [ ] @Bridge
+- [ ] @Proxy
+
+### Creational Design Patterns - Unsure if these will be marker or behavioral or exist at all
+- [ ] @Factory
+- [ ] @Builder
+- [ ] @Prototype
+- [ ] @Singleton
+
+### Behavioral Design Patterns - Unsure if these will be marker or behavioral or exist at all
+- [ ] @ChainOfRepsonsibility
+- [ ] @Command
+- [ ] @Interpreter
+- [ ] @Iterator
+- [ ] @Mediator
+- [ ] @Momento
+- [ ] @Observer
+- [ ] @State
+- [ ] @Strategy
+- [ ] @TemplateMethod
+- [ ] @Visitor
+
+### FP Design patterns - Unsure if these will be marker or behavioral
+- [ ] @Typeclass
+- [ ] @Monad
+- [ ] @Monoid
+
 
 ### Potential Library Dependants
 - [ ] Scalaz:@Show - Generate a Show typeclass for this object
