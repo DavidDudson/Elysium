@@ -7,7 +7,7 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.typesafeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
-  addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M3" cross CrossVersion.full),
+  addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M4" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4",
   coverageHighlighting := false
 )
