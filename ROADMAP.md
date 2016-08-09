@@ -61,6 +61,10 @@
 - [ ] @Singleton - Verify that it is a one element list
 - [ ] @Empty - Verify the object is empty
 - [ ] @Immutable - Verify only val's, no vars
+- [ ] @ImmutableCollections - Only ImmutableCollections
+- [ ] @MutableCollections - Marker to tell @ImmutableCollection to ignore this method
+- [ ] @LazyCollections - Only Views are allowed
+- [ ] @Lazy - All fields are lazy
 - [ ] @Struct - Verify no behavior only getters and setters
 - [ ] @NoFields - Verify no fields only behavioral implications
 - [ ] @NoNullItems - Verify a traversable has no nulls in it
