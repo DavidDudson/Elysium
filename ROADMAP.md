@@ -104,7 +104,7 @@
 - [ ] @Singleton
 
 ### Behavioral Design Patterns - Unsure if these will be marker or behavioral or exist at all
-- [ ] @ChainOfRepsonsibility
+- [ ] @ChainOfReponsibility
 - [ ] @Command
 - [ ] @Interpreter
 - [ ] @Iterator
@@ -131,6 +131,12 @@
 - [ ] Scalaz:@Eq - Generate a Eq typeclass for this object
 - [ ] Many:@Option - Generate toXOption for Scala/ScalaZ/Shapeless etc.
 - [ ] Many:@Logger - Generate a logger for the class
+
+### Troll - Mostly a bit of fun/minimal use
+- [ ] @Val - Convert var to val
+- [ ] @Var - Convert val to var
+- [ ] @Privatise - convert any methods/fields etc prefixed with _ to private (from python)
+
 
 ### Other
 - [ ] @Enum - A scala enum type, the way it should have been
