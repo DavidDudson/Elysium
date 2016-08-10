@@ -39,6 +39,7 @@
 
 ### Meta Programming
 - [ ] @Macro - Inserts the inline and meta block for you
+- [ ] @AnnotationMacro - Converts a def X into an annotation macro of @X
 - [ ] @PrintTree - Prints the scalameta AST
 - [ ] @Identity - No-op
 - [ ] @WhatAmI - Prints what type of Defn the annotee is
@@ -120,6 +121,10 @@
 - [ ] Commutative
 - [ ] Associative
 - [ ] Distributive
+- [ ] Covariant
+- [ ] Invariant
+- [ ] Bivariant
+- [ ] Contravariant
 
 ### FP Design patterns - Unsure if these will be marker or behavioral
 - [ ] @Typeclass
@@ -132,11 +137,19 @@
 - [ ] Many:@Option - Generate toXOption for Scala/ScalaZ/Shapeless etc.
 - [ ] Many:@Logger - Generate a logger for the class
 
-### Troll - Mostly a bit of fun/minimal use
-- [ ] @Val - Convert var to val
-- [ ] @Var - Convert val to var
+### Redundant - For completion/testing purposes - DO NOT USE IN PRODUCTION
+- [ ] @ToVal - Convert var to val
+- [ ] @ToVar - Convert val to var
+- [ ] @Lazy - Make lazy
 - [ ] @Privatise - convert any methods/fields etc prefixed with _ to private (from python)
-
+- [ ] @Private - make private
+- [ ] @PackagePrivate - make package private
+- [ ] @Final - make final
+- [ ] @Public - Convert things to public ones
+- [ ] @Unseal - Convert sealed things to unsealed
+- [ ] @NoSunchronize
+- [ ] @Rename - Change the name of a class/trait/field/method etc.
+- [ ] @Delete - Return an empty tree
 
 ### Other
 - [ ] @Enum - A scala enum type, the way it should have been
