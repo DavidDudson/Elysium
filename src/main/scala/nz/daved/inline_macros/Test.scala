@@ -1,6 +1,4 @@
-package nz.daved
-
-import scala.meta._
+package nz.daved.inline_macros
 
 @Main
 object Test {

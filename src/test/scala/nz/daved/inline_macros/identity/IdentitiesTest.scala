@@ -1,4 +1,4 @@
-package nz.daved.inlinemacros.identity
+package nz.daved.inline_macros.identity
 
 import org.scalatest.{FlatSpec, Matchers}
 
