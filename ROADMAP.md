@@ -41,8 +41,18 @@
 - [ ] @Macro - Inserts the inline and meta block for you
 - [ ] @AnnotationMacro - Converts a def X into an annotation macro of @X
 - [ ] @PrintTree - Prints the scalameta AST
-- [ ] @Identity - No-op
 - [ ] @WhatAmI - Prints what type of Defn the annotee is
+
+## Identities
+- [x] @Identity - No-op
+- [ ] @Copy - Typeclass of Macros that literally just duplicate the contents
+- [x] @CopyDef
+- [ ] @CopyVal
+- [ ] @CopyVar
+- [ ] @CopyTrait
+- [ ] @CopyClass
+- [ ] @CopyObject
+- [ ] @CopyType
 
 ### Optimisation
 - [ ] @Specialize - Identical to scala @Specialize
