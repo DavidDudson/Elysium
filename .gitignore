@@ -2,3 +2,5 @@ macros/target
 project/target
 .idea
 target/
+macros/.DS_Store
+.DS_Store
