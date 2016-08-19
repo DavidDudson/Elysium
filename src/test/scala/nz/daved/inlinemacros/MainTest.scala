@@ -1,7 +1,8 @@
-package nz.daved
+package nz.daved.inlinemacros
 
 import java.io.{ByteArrayOutputStream, PrintStream}
 
+import nz.daved.Test
 import org.scalatest.{FlatSpec, Matchers}
 
 class MainTest extends FlatSpec with Matchers {

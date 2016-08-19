@@ -1,4 +1,4 @@
-package nz.daved.identity
+package nz.daved.inlinemacros.identity
 
 import scala.annotation.StaticAnnotation
 import scala.meta._

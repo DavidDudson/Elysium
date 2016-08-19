@@ -1,4 +1,4 @@
-package nz.daved.identity
+package nz.daved.inlinemacros.identity
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -6,7 +6,7 @@ class IdentitiesTest extends FlatSpec with Matchers {
 
   "@Identity" should "compile" in {
     @Identity
-    def main() = {}
+    def main() = ""
 
     @Identity
     val hi = ""
@@ -15,13 +15,13 @@ class IdentitiesTest extends FlatSpec with Matchers {
     var hello = ""
 
     @Identity
-    object SomeObject {}
+    object SomeObject
 
     @Identity
-    class SomeClass(a: String) {}
+    class SomeClass(a: String)
 
     @Identity
-    case class SomeCaseClass(a: String) {}
+    case class SomeCaseClass(a: String)
 
     @Identity
     trait SomeTrait
@@ -31,7 +31,7 @@ class IdentitiesTest extends FlatSpec with Matchers {
   }
 
   "@Copy" should "compile" in {
-    @Copy
-    def main() = {}
+    @CopyDef
+    def main() = ""
   }
 }
