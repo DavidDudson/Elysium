@@ -4,3 +4,4 @@ project/target
 target/
 macros/.DS_Store
 .DS_Store
+.ensime_cache/
