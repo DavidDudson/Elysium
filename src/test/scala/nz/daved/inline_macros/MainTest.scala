@@ -2,7 +2,6 @@ package nz.daved.inline_macros
 
 import java.io.{ByteArrayOutputStream, PrintStream}
 
-import Test
 import org.scalatest.{FlatSpec, Matchers}
 
 class MainTest extends FlatSpec with Matchers {
