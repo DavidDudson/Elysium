@@ -1,11 +1,18 @@
 # Roadmap
 
-## MetaApi
+## MetaApi (Via implicits, where applicable)
 
-- [ ] genDef() - Generate a Def tree
-- [ ] genCompanion() - Generate a companion object tree
-- [ ] genVal() - Generate Val tree
-- [ ] genVar() - Generate Var tree
+Some/All of this may end up in the scala.meta library semantic api
+
+- [ ] appendStat - Appends a statement to the stats
+- [ ] prependStat - prepends a statement to the stats
+- [ ] replaceStats - replace current stats with the supplied
+- [ ] simpleName - name of the Term (no package info)
+- [ ] fullName - name of the Term inlcuding package info
+- [ ] addField
+- [ ] addMethod
+- [ ] parameters
+- [ ] implicitParameters
 
 ## Annotation Macros
 
@@ -40,7 +47,6 @@
 ### Meta Programming
 - [ ] @Macro - Inserts the inline and meta block for you
 - [ ] @AnnotationMacro - Converts a def X into an annotation macro of @X
-- [ ] @PrintTree - Prints the scalameta AST
 - [ ] @WhatAmI - Prints what type of Defn the annotee is
 
 ## Identities
@@ -53,6 +59,19 @@
 - [ ] @CopyClass
 - [ ] @CopyObject
 - [ ] @CopyType
+
+## Printers
+- [x] @PrintStructure - show structure of anything annotatable
+- [x] @PrintSyntax - show syntax of anything annotatable
+- [ ] @PrintMods 
+- [ ] @PrintFields
+- [ ] @PrintParams
+- [ ] @PrintStatements
+- [ ] @PrintSuperClass
+- [ ] @PrintTraits
+- [ ] @PrintMethods
+- [ ] @PrintFunctions
+
 
 ### Optimisation
 - [ ] @Specialize - Identical to scala @Specialize
@@ -157,13 +176,13 @@
 - [ ] @Final - make final
 - [ ] @Public - Convert things to public ones
 - [ ] @Unseal - Convert sealed things to unsealed
-- [ ] @NoSunchronize
+- [ ] @NoSynchronize
 - [ ] @Rename - Change the name of a class/trait/field/method etc.
 - [ ] @Delete - Return an empty tree
 
 ### Other
 - [ ] @Enum - A scala enum type, the way it should have been
-- [ ] @Refine(a, b) - generates "def b(params) = @inline super.a(params)"
+- [ ] @Refine(a, b) - generates "def b(params) = super.a(params)"
 - [ ] @Symbolic(symbol) - generate a method with the symbolic operator
 
 ## Def Macros
