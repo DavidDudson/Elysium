@@ -11,6 +11,6 @@ class MainTest extends FlatSpec with Matchers {
     Console.withOut(new PrintStream(out)) {
       Test.main(Array())
     }
-    out.toString shouldBe "hello world\n"
+    out.toString.stripLineEnd shouldBe "hello world"
   }
 }
