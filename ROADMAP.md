@@ -34,6 +34,7 @@ Some/All of this may end up in the scala.meta library semantic api
 - [ ] @Profile - Accumulate statistics about methods that can then be accessed and printed
 - [ ] @Monitor - Like @Profile, except no accumulation, so that graphs can be made from the data etc.
 - [ ] @Debug - Only execute the method during debug sessions
+- [ ] @WhatAmI - Prints what type of Defn the annotee is
 - [ ] @Production - Only execute the method in production
 - [ ] @Benchmark - Generate a benchmark method that will run this method 1 million times
 
@@ -47,7 +48,6 @@ Some/All of this may end up in the scala.meta library semantic api
 ### Meta Programming
 - [ ] @Macro - Inserts the inline and meta block for you
 - [ ] @AnnotationMacro - Converts a def X into an annotation macro of @X
-- [ ] @WhatAmI - Prints what type of Defn the annotee is
 
 ## Identities
 - [x] @Identity - No-op
@@ -63,7 +63,7 @@ Some/All of this may end up in the scala.meta library semantic api
 ## Printers
 - [x] @PrintStructure - show structure of anything annotatable
 - [x] @PrintSyntax - show syntax of anything annotatable
-- [ ] @PrintMods 
+- [ ] @PrintMods
 - [ ] @PrintFields
 - [ ] @PrintParams
 - [ ] @PrintStatements
@@ -71,7 +71,6 @@ Some/All of this may end up in the scala.meta library semantic api
 - [ ] @PrintTraits
 - [ ] @PrintMethods
 - [ ] @PrintFunctions
-
 
 ### Optimisation
 - [ ] @Specialize - Identical to scala @Specialize
@@ -146,7 +145,7 @@ Some/All of this may end up in the scala.meta library semantic api
 - [ ] @TemplateMethod
 - [ ] @Visitor
 
-### Constraints 
+### Constraints
 - [ ] Commutative
 - [ ] Associative
 - [ ] Distributive
