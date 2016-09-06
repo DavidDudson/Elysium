@@ -16,6 +16,7 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.sonatypeRepo("snapshots"),
   addCompilerPlugin("org.scalamacros" % "paradise" % "3.0.0-M4" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4",
+  updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
   coverageEnabled := true
 )
@@ -79,5 +80,6 @@ lazy val miscTest = (project in file("misc_test"))
   .dependsOn(misc)
 
 lazy val all = (project in file("all"))
+    .settings(Seq(aggregate in update := false))
     .aggregate(gen, core, verify, manipulate, debug, misc)
 
