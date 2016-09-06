@@ -5,33 +5,17 @@ import org.scalatest.{FlatSpec, Matchers}
 class IdentitiesTest extends FlatSpec with Matchers {
 
   "@Identity" should "compile" in {
-    @Identity
-    def main() = ""
-
-    @Identity
-    val hi = ""
-
-    @Identity
-    var hello = ""
-
-    @Identity
-    object SomeObject
-
-    @Identity
-    class SomeClass(a: String)
-
-    @Identity
-    case class SomeCaseClass(a: String)
-
-    @Identity
-    trait SomeTrait
-
-    @Identity
-    sealed trait SomeSealedTrait
+    "@Identity def main() = {}" should compile
+    "@Identity val hi = \"\"" should compile
+    "@Identity var hello = \"\"" should compile
+    "@Identity object SomeObject" should compile
+    "@Identity class SomeClass(a: String)" should compile
+    "@Identity case class SomeCaseClass(a: String)" should compile
+    "@Identity trait SomeTrait" should compile
+    "@Identity sealed trait SomeSealedTrait" should compile
   }
 
   "@Copy" should "compile" in {
-    @CopyDef
-    def main() = ""
+    "@CopyDef def main() = \"\"" should compile
   }
 }
