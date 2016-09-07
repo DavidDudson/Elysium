@@ -4,10 +4,11 @@
 
 Some/All of this may end up in the scala.meta library semantic api
 
-- [ ] appendStat - Appends a statement to the stats
-- [ ] prependStat - prepends a statement to the stats
-- [ ] replaceStats - replace current stats with the supplied
-- [ ] simpleName - name of the Term (no package info)
+- [x] appendStat - Appends a statement to the stats
+- [x] prependStat - prepends a statement to the stats
+- [x] replaceStats - replace current stats with the supplied
+- [x] deleteStats - replace current stats with the supplied
+- [x] simpleName - name of the Term (no package info)
 - [ ] fullName - name of the Term inlcuding package info
 - [ ] addField
 - [ ] addMethod
@@ -179,10 +180,12 @@ Some/All of this may end up in the scala.meta library semantic api
 - [ ] @Rename - Change the name of a class/trait/field/method etc.
 - [ ] @Delete - Return an empty tree
 
+
 ### Other
 - [ ] @Enum - A scala enum type, the way it should have been
 - [ ] @Refine(a, b) - generates "def b(params) = super.a(params)"
-- [ ] @Symbolic(symbol) - generate a method with the symbolic operator
+- [x] @Operator(symbol) - generate a method with the symbolic operator
+- [ ] @Mirror(name) - generate a second method/class identical but with a different name
 
 ## Def Macros
 - TBD

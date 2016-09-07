@@ -1,6 +1,6 @@
-![codecov](https://codecov.io/gh/DavidDudson/InlineMacros/branch/master/graph/badge.svg?bloop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/696434ec2419482dbd3c95b29c28366f)](https://www.codacy.com/app/davidjohndudson/InlineMacros?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DavidDudson/InlineMacros&amp;utm_campaign=Badge_Grade) 
+![codecov](https://codecov.io/gh/DavidDudson/Elysium/branch/master/graph/badge.svg?bloop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/696434ec2419482dbd3c95b29c28366f)](https://www.codacy.com/app/davidjohndudson/Elysium?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DavidDudson/InlineMacros&amp;utm_campaign=Badge_Grade) 
 
-Linux/Mac: ![Build Status](https://travis-ci.org/DavidDudson/InlineMacros.svg?branch=master) 
+Linux/Mac: ![Build Status](https://travis-ci.org/DavidDudson/Elysium.svg?branch=master) 
 
 Windows: [![Build status](https://ci.appveyor.com/api/projects/status/055tsw3coigqixuj?svg=true)](https://ci.appveyor.com/project/DavidDudson/inlinemacros)
 
@@ -31,11 +31,11 @@ Elysium has 3 goals.
 
 Ordered by importance will tick when they are complete in scala meta
 
-- [ ] Argument Macros
+- [x] Argument Macros
 - [ ] Inline Generation (Macros generating macros)
 - [ ] Macro Testing framework
 - [ ] Semantic API
-- [ ] Multiple Annotations
+- [x] Multiple Annotations
 - [ ] Def Macros
 
 ### Navigating
