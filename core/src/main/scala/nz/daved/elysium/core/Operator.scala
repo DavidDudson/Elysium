@@ -1,5 +1,6 @@
 package nz.daved.elysium.core
 
+import nz.daved.elysium.manipulate.TermNameManipulation._
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
 
@@ -19,23 +20,18 @@ import scala.meta._
 @compileTimeOnly("@Operator not expanded")
 class Operator(name: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
-
-    /** Ensures 1 -> 5 characters, non word (no numbers or letters) */
-    def isSymbolic(termName: Term.Name) = "^\\W{1,5}$".r.findFirstIn(termName.value).isDefined
-    def containsWhiteSpace(termName: Term.Name) = "\\s".r.findFirstIn(termName.value).isDefined
-
     val q"new $_($arg)" = this
-    val argName = arg match {
+    val argName: Term.Name = arg match {
       case Term.Arg.Named(termName, _) => termName
       case Lit(literal) => Term.Name(literal.toString)
       case c => abort("other: " + c.show[Structure])
     }
 
-    if (containsWhiteSpace(argName)) {
+    if (argName.containsWhitespace) {
       abort(s"'${argName.value}' contains whitespace and cannot be used as an operator")
     }
 
-    if (!isSymbolic(argName)) {
+    if (argName.isSymbolic) {
       abort(s"'${argName.value}' is not symbolic and cannot be used as an operator")
     }
 

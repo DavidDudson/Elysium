@@ -37,11 +37,11 @@ lazy val genTest = (project in file("gen_test"))
 lazy val core = (project in file("core"))
   .settings(commonSettings: _*)
   .settings(macroSettings: _*)
-  .dependsOn(gen)
+  .dependsOn(gen, manipulate)
 
 lazy val coreTest = (project in file("core_test"))
   .settings(commonSettings: _*)
-  .dependsOn(core)
+  .dependsOn(core, manipulate)
 
 lazy val verify = (project in file("verify"))
   .settings(commonSettings: _*)

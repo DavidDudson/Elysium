@@ -1,5 +1,5 @@
 package nz.daved.elysium
 
-package object manipulate extends DefManipulation {
+package object manipulate extends DefManipulation with TermNameManipulation {
 
 }
