@@ -1,7 +1,7 @@
 package nz.daved.elysium.core
 
-import nz.daved.elysium.manipulate.TermNameManipulation._
 import nz.daved.elysium.manipulate.LitManipulation._
+
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
 
@@ -19,24 +19,23 @@ import scala.meta._
   * def +(i: Int)
   */
 @compileTimeOnly("@Operator not expanded")
-class Operator(name: String) extends StaticAnnotation {
+class Operator(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
-    val argName: Term.Name = arg.asTermName
 
-    if (argName.containsWhitespace) {
-      abort(s"'${argName.value}' contains whitespace and cannot be used as an operator")
+    if (arg.containsWhitespace) {
+      abort(s"'${arg.name}' contains whitespace and cannot be used as an operator")
     }
 
-    if (argName.isSymbolic) {
-      abort(s"'${argName.value}' is not symbolic and cannot be used as an operator")
+    if (arg.isSymbolic) {
+      abort(s"'${arg.name}' is not symbolic and cannot be used as an operator")
     }
 
     val extraMethod: Tree = defn match {
       case q"..$mods def $_[..$tparam](...$params):$treturn = { ..$stats }" =>
-        q"..$mods def $argName[..$tparam](...$params):$treturn  = { ..$stats }"
+        q"..$mods def ${arg.asTermName}[..$tparam](...$params):$treturn  = { ..$stats }"
       case q"..$mods def $_[..$tparam](...$params):$treturn = $expr" =>
-        q"..$mods def $argName[..$tparam](...$params):$treturn  = $expr"
+        q"..$mods def ${arg.asTermName}[..$tparam](...$params):$treturn  = $expr"
     }
 
     q"$defn; ${extraMethod.asInstanceOf[Stat]}"
