@@ -1,6 +1,7 @@
 package nz.daved.elysium.core
 
 import nz.daved.elysium.manipulate.LitManipulation._
+import nz.daved.elysium.manipulate.DefManipulation._
 
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
@@ -31,13 +32,8 @@ class Operator(nameArg: String) extends StaticAnnotation {
       abort(s"'${arg.name}' is not symbolic and cannot be used as an operator")
     }
 
-    val extraMethod: Tree = defn match {
-      case q"..$mods def $_[..$tparam](...$params):$treturn = { ..$stats }" =>
-        q"..$mods def ${arg.asTermName}[..$tparam](...$params):$treturn  = { ..$stats }"
-      case q"..$mods def $_[..$tparam](...$params):$treturn = $expr" =>
-        q"..$mods def ${arg.asTermName}[..$tparam](...$params):$treturn  = $expr"
-    }
+    val newMethod: Defn.Def = defn.asInstanceOf[Defn.Def].rename(arg.asTermName)
 
-    q"$defn; ${extraMethod.asInstanceOf[Stat]}"
+    q"$defn; $newMethod"
   }
 }

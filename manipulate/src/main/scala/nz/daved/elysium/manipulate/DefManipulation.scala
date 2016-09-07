@@ -33,5 +33,20 @@ trait DefManipulation {
     }
 
     def deleteStats: Defn.Def = replaceStats(immutable.Seq())
+
+    // TODO: Make HasName a typeclass and use that instead
+    def rename(name: Term.Name): Defn.Def = {
+      val result: Tree = defn match {
+        case q"..$mods def $_[..$tparam](...$params):$treturn = { ..$stats }" =>
+          q"..$mods def $name[..$tparam](...$params):$treturn = { ..$stats }"
+        case q"..$mods def $_[..$tparam](...$params):$treturn = $expr" =>
+          q"..$mods def $name[..$tparam](...$params):$treturn = $expr"
+      }
+
+      //TODO: Replace with some same casting method that gives decent error messages
+      result.asInstanceOf[Defn.Def]
+    }
   }
 }
+
+object DefManipulation extends DefManipulation
