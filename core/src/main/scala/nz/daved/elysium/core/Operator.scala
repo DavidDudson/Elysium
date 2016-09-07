@@ -1,6 +1,7 @@
 package nz.daved.elysium.core
 
 import nz.daved.elysium.manipulate.TermNameManipulation._
+import nz.daved.elysium.manipulate.LitManipulation._
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
 
@@ -20,12 +21,8 @@ import scala.meta._
 @compileTimeOnly("@Operator not expanded")
 class Operator(name: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
-    val q"new $_($arg)" = this
-    val argName: Term.Name = arg match {
-      case Term.Arg.Named(termName, _) => termName
-      case Lit(literal) => Term.Name(literal.toString)
-      case c => abort("other: " + c.show[Structure])
-    }
+    val q"new $_(${arg: Lit})" = this
+    val argName: Term.Name = arg.asTermName
 
     if (argName.containsWhitespace) {
       abort(s"'${argName.value}' contains whitespace and cannot be used as an operator")
