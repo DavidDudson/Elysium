@@ -28,7 +28,7 @@ class Operator(nameArg: String) extends StaticAnnotation {
       abort(s"'${arg.name}' contains whitespace and cannot be used as an operator")
     }
 
-    if (arg.isSymbolic) {
+    if (!arg.isSymbolic) {
       abort(s"'${arg.name}' is not symbolic and cannot be used as an operator")
     }
 
