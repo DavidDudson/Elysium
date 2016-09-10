@@ -13,4 +13,12 @@ class DecoratorTest extends FlatSpec with Matchers {
     }
     out.toString.stripLineEnd shouldBe "hello world"
   }
+
+  "@After" should "deal with anonymous functions passed in" in {
+    val out: ByteArrayOutputStream = new ByteArrayOutputStream()
+    Console.withOut(new PrintStream(out)) {
+      DecoratorTestObject.hello()
+    }
+    out.toString.stripLineEnd shouldBe "hello world"
+  }
 }

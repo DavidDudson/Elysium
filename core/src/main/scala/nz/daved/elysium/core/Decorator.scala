@@ -13,3 +13,11 @@ class Before(fun: () => Unit) extends StaticAnnotation {
     defn.asInstanceOf[Def].prependStat(apply)
   }
 }
+
+@compileTimeOnly("@After not expanded")
+class After(fun: () => Unit) extends StaticAnnotation {
+  inline def apply(defn: Any): Any = meta {
+    val q"new $_(() => ${apply: Term.Apply})" = this
+    defn.asInstanceOf[Def].appendStat(apply)
+  }
+}
