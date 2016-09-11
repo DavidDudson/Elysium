@@ -6,6 +6,8 @@ Windows: [![Build status](https://ci.appveyor.com/api/projects/status/055tsw3coi
 
 ## Elysium
 
+[![Join the chat at https://gitter.im/MetaElysium/Lobby](https://badges.gitter.im/MetaElysium/Lobby.svg)](https://gitter.im/MetaElysium/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Incredibly WIP/Experimental, everything is in a state of *flux* until 
 scalameta/paradise hits 3.0.0. api's can change/dissapear at a moments notice**
 
