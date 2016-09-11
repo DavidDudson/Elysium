@@ -17,7 +17,7 @@ lazy val commonSettings = Seq(
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0-RC4",
   updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
-  coverageEnabled := false
+  coverageEnabled := true
 )
 
 // Macro setting is any module that has macros, or manipulates meta trees
