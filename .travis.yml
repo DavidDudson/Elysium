@@ -3,6 +3,5 @@ scala:
    - 2.11.8
 os:
  - linux
- - osx
 after_success:
  - bash <(curl -s https://codecov.io/bash)
