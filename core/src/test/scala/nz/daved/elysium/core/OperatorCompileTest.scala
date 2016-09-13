@@ -24,4 +24,17 @@ class OperatorCompileTest extends FlatSpec with Matchers {
     "@Operator def foo = {}" shouldNot compile
   }
 
+  "AlternateName" should "compile with valid params" in {
+    "@AlternateName(\"bar\") def foo = {}" should compile
+    "@AlternateName(\"HJSDKHdsae7ewq8ewq\") def foo = {}" should compile
+    "@AlternateName(\"Hªdsa\") def foo = {}" should compile
+  }
+
+  it should "not compile with invalid params" in {
+    "@AlternateName(\"\") def foo = {}" shouldNot compile
+    "@AlternateName(\"  \") def foo = {}" shouldNot compile
+    "@AlternateName(\"dsajkdsa  dsajdsa\") def foo = {}" shouldNot compile
+    "@AlternateName(\"  d\") def foo = {}" shouldNot compile
+    "@AlternateName(\"d \") def foo = {}" shouldNot compile
+  }
 }

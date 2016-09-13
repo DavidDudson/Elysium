@@ -25,10 +25,10 @@ class OperatorTests extends FlatSpec with Matchers with BeforeAndAfter {
     testObject.numbers shouldEqual Seq(3, 4, 5, 6)
   }
 
-  "Append operator" should "be interchangeable" in {
-    testObject |+ 1
-    testObject.append(2)
+  "Append alternate" should "be interchangeable" in {
+    testObject.append(1)
+    testObject.add(3)
 
-    testObject.numbers shouldEqual Seq(1, 2)
+    testObject.numbers shouldEqual Seq(1, 3)
   }
 }

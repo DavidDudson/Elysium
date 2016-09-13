@@ -37,3 +37,32 @@ class Operator(nameArg: String) extends StaticAnnotation {
     q"$defn; $newMethod"
   }
 }
+
+
+/**
+  * Generates an identical method with a different name. designed for methods with multiple common names.
+  * The current implementation just generates a duplicate method. however this may be undesired.
+  *
+  * eg.
+  * def contains (from Java land)
+  * def includes (From JS land)
+  *
+  */
+@compileTimeOnly("@Operator not expanded")
+class AlternateName(nameArg: String) extends StaticAnnotation {
+  inline def apply(defn: Any): Any = meta {
+    val q"new $_(${arg: Lit})" = this
+
+    if (arg.name.isEmpty) {
+      abort(s"Duplicate method name must be non-empty")
+    }
+
+    if (arg.containsWhitespace) {
+      abort(s"'${arg.name}' contains whitespace and cannot be used as a method name")
+    }
+
+    val newMethod: Defn.Def = defn.asInstanceOf[Defn.Def].rename(arg.asTermName)
+
+    q"$defn; $newMethod"
+  }
+}

@@ -7,7 +7,7 @@ case class OperatorTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer())
   @Operator("+|")
   def prepend(i: Int): Unit = numbers.prepend(i)
 
-  @Operator("|+")
+  @AlternateName("add")
   def append(i: Int): Unit = numbers.append(i)
 
   @Operator("++")
