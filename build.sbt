@@ -15,6 +15,7 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.sonatypeRepo("snapshots"),
   addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M5" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0",
+  libraryDependencies += "org.typelevel" %% "cats" % "0.7.2",
   updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
   coverageEnabled := true
