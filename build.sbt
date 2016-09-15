@@ -28,6 +28,7 @@ lazy val macroSettings = Seq(
 lazy val gen = (project in file("gen"))
   .settings(commonSettings: _*)
   .settings(macroSettings: _*)
+  .dependsOn(manipulate)
 
 lazy val genTest = (project in file("gen_test"))
   .settings(commonSettings: _*)

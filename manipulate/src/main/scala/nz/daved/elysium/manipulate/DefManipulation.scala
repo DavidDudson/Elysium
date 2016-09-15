@@ -25,6 +25,9 @@ trait DefManipulation {
       }
     }
 
+    def appendMod(mod: Mod) = defn.copy(mods = defn.mods :+ mod)
+    def prependMod(mod: Mod) = defn.copy(mods = mod +: defn.mods)
+
     def replaceStats(stats: immutable.Seq[Stat]): Defn.Def = {
       defn match {
         case q"..$mods def $name[..$tparams](...$paramss): $tpeopt = $_" =>
