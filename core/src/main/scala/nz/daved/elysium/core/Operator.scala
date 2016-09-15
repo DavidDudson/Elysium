@@ -1,9 +1,9 @@
 package nz.daved.elysium.core
 
+import nz.daved.elysium.gen.CompileTime
 import nz.daved.elysium.manipulate.LitManipulation._
 import nz.daved.elysium.manipulate.DefManipulation._
-
-import scala.annotation.{StaticAnnotation, compileTimeOnly}
+import scala.annotation.StaticAnnotation
 import scala.meta._
 
 /**
@@ -19,7 +19,7 @@ import scala.meta._
   * def append(i: Int)
   * def +(i: Int)
   */
-@compileTimeOnly("@Operator not expanded")
+@CompileTime
 class Operator(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
@@ -48,7 +48,7 @@ class Operator(nameArg: String) extends StaticAnnotation {
   * def includes (From JS land)
   *
   */
-@compileTimeOnly("@Operator not expanded")
+@CompileTime
 class AlternateName(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this

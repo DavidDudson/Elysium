@@ -1,12 +1,12 @@
 package nz.daved.elysium.core
 
-import scala.annotation.{StaticAnnotation, compileTimeOnly}
+import nz.daved.elysium.gen.CompileTime
+import scala.annotation.StaticAnnotation
 import nz.daved.elysium.manipulate.DefManipulation._
-
 import scala.meta.Defn.Def
 import scala.meta._
 
-@compileTimeOnly("@Before not expanded")
+@CompileTime
 class Before(fun: () => Unit) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(() => ${apply: Term.Apply})" = this
@@ -14,7 +14,7 @@ class Before(fun: () => Unit) extends StaticAnnotation {
   }
 }
 
-@compileTimeOnly("@After not expanded")
+@CompileTime
 class After(fun: () => Unit) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(() => ${apply: Term.Apply})" = this
