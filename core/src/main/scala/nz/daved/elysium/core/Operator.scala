@@ -2,6 +2,7 @@ package nz.daved.elysium.core
 
 import nz.daved.elysium.manipulate.LitManipulation._
 import nz.daved.elysium.manipulate.DefManipulation._
+import nz.daved.elysium.manipulate.validate.NamedValidation._
 
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
@@ -23,6 +24,8 @@ import scala.meta._
 class Operator(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
+
+    arg.containsWhitespace |@| arg.
 
     if (arg.containsWhitespace) {
       abort(s"'${arg.name}' contains whitespace and cannot be used as an operator")
