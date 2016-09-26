@@ -9,9 +9,11 @@ class identity extends StaticAnnotation {
 }
 
 class copyDef extends StaticAnnotation {
-  implicit inline def apply(defn: Any): Any = meta {
-    val q"..$mods def $name[..$tparam](...$params):$treturn = $expr" = defn
-    q"..$mods def $name[..$tparam](...$params):$treturn  = $expr"
+  implicit inline def apply(a: Any): Any = meta {
+    a match {
+      case defn: Defn.Def => defn.copy()
+      case _ => abort("@CopyDef only supports Defn")
+    }
   }
 }
 
