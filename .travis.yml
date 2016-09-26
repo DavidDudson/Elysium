@@ -5,6 +5,6 @@ os:
  - linux
 script:
  - sbt coverage test
- - sbt coverageReport
+# - sbt coverageReport
 after_success:
  - bash <(curl -s https://codecov.io/bash)
