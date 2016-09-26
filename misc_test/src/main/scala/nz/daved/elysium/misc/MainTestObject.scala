@@ -1,6 +1,6 @@
 package nz.daved.elysium.misc
 
-@Main
+@main
 object MainTestObject {
   println("hello world")
 }
