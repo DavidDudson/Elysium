@@ -3,5 +3,8 @@ scala:
    - 2.11.8
 os:
  - linux
+script:
+ - sbt coverage test
+ - sbt coverageReport
 after_success:
  - bash <(curl -s https://codecov.io/bash)
