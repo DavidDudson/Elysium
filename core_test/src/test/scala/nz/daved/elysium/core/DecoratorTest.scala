@@ -6,7 +6,7 @@ import org.scalatest.{FlatSpec, Matchers}
 
 class DecoratorTest extends FlatSpec with Matchers {
 
-  "@Before" should "deal with anonymous functions passed in" in {
+  "@before" should "deal with anonymous functions passed in" in {
     val out: ByteArrayOutputStream = new ByteArrayOutputStream()
     Console.withOut(new PrintStream(out)) {
       DecoratorTestObject.world()
@@ -14,7 +14,7 @@ class DecoratorTest extends FlatSpec with Matchers {
     out.toString.stripLineEnd shouldBe "hello world"
   }
 
-  "@After" should "deal with anonymous functions passed in" in {
+  "@after" should "deal with anonymous functions passed in" in {
     val out: ByteArrayOutputStream = new ByteArrayOutputStream()
     Console.withOut(new PrintStream(out)) {
       DecoratorTestObject.hello()

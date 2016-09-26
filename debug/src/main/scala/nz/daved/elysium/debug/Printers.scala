@@ -5,14 +5,14 @@ import pprint._
 import scala.annotation.StaticAnnotation
 import scala.meta._
 
-class PrintStructure extends StaticAnnotation {
+class printStructure extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     pprintln(defn.show[Structure])
     defn
   }
 }
 
-class PrintSyntax extends StaticAnnotation {
+class printSyntax extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     pprintln(defn.show[Syntax])
     defn

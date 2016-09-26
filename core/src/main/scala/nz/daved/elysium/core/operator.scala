@@ -19,8 +19,8 @@ import scala.meta._
   * def append(i: Int)
   * def +(i: Int)
   */
-@compileTimeOnly("@Operator not expanded")
-class Operator(nameArg: String) extends StaticAnnotation {
+@compileTimeOnly("@operator not expanded")
+class operator(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 
@@ -48,8 +48,8 @@ class Operator(nameArg: String) extends StaticAnnotation {
   * def includes (From JS land)
   *
   */
-@compileTimeOnly("@Alias not expanded")
-class Alias(nameArg: String) extends StaticAnnotation {
+@compileTimeOnly("@alias not expanded")
+class alias(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 

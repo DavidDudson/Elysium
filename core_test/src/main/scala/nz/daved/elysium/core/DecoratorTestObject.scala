@@ -2,9 +2,9 @@ package nz.daved.elysium.core
 
 object DecoratorTestObject {
 
-  @Before(() => print("hello"))
+  @before(() => print("hello"))
   def world(): Unit = println(" world")
 
-  @After(() => println(" world"))
+  @after(() => println(" world"))
   def hello(): Unit = print("hello")
 }
