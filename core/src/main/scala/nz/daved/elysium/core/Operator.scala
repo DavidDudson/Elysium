@@ -48,8 +48,8 @@ class Operator(nameArg: String) extends StaticAnnotation {
   * def includes (From JS land)
   *
   */
-@compileTimeOnly("@Operator not expanded")
-class AlternateName(nameArg: String) extends StaticAnnotation {
+@compileTimeOnly("@Alias not expanded")
+class Alias(nameArg: String) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 
