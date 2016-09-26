@@ -32,8 +32,9 @@ trait DefManipulation {
 
 
     // TODO: Make HasName a typeclass and use that instead
-    def rename(name: Term.Name): Defn.Def =
-      defn.copy(name = name)
+    def rename(n: String): Defn.Def = rename(Term.Name(n))
+    def rename(n: Term.Name): Defn.Def =
+      defn.copy(name = n)
   }
 }
 
