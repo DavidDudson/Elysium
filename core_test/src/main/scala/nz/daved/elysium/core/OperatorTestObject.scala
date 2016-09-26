@@ -11,6 +11,6 @@ case class OperatorTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer())
   def append(i: Int): Unit = numbers.append(i)
 
   @operator("++")
-  def combine(is: Seq[Int]): Unit = numbers ++= is
+  def combine(is: Seq[Int]): ArrayBuffer[Int] = numbers ++= is
 
 }
