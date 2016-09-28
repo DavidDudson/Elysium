@@ -19,19 +19,34 @@ Elysium has 3 goals.
 2. Teach people how to write macros
 3. Have a huge number of useful macros on hand for people to use
 
+### Some useful things
+
+- In core, Renamed and Decorator have examples of using arguments in macro
+- In misc, there is a simple 
+
+
 ### Modules
 
-- all - Aggregation of all projects
-- core - The main things people will want when creating their own macros or using this library
-- debug - Macros for debugging/logging/profiling (may split these if it gets too big)
-- gen - Macro/Inline generation tooling. This would be in core but has to be compiled seperately
-- manipulate - impicit classes to manipulate meta trees, The semantic api may replace some of this.
-- misc - generic stuff, more for teaching purposes then anything else, there's usually a better way
+I have also detailed what kind of dependency is required. Mixed means can be either depending on how you use it
+
+- [Runtime] all - Aggregation of all projects
+- [Compile] core - The main things people will want when creating their own macros or using this library
+- [Runtime] debug - Macros for debugging (printing object state etc)
+- [Runtime] profile - Macros for profiling (accumulating statistics etc)
+- [Compile] log - Macros for generating loggers (will possibly use slf4j)
+- [Compile] gen - Macro/Inline generation tooling. This would be in core but has to be compiled seperately
+- [Mixed] manipulate - impicit classes to manipulate meta trees, The semantic api may replace some of this.
+- [Mixed] validate - things for improving the validation and error messages for macros
+- [Compile] misc - generic stuff, more for teaching purposes then anything else, there's usually a better way
 
 
 ### Things delaying this project
 
-Ordered by importance will tick when they are complete in scala meta
+Ordered by importance will tick when they are complete in scala meta.
+
+Note: Im mainly refraining from working only the macro heavy parts of 
+the project at the moment because once I can parse/generate inline macros 
+I will be rewriting all existing macros.
 
 - [x] Argument Macros
 - [ ] Inline Generation (Macros generating macros)
