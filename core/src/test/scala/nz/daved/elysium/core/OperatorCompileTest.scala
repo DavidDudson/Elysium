@@ -37,4 +37,25 @@ class operatorCompileTest extends FlatSpec with Matchers {
     "@alias(\"  d\") def foo = {}" shouldNot compile
     "@alias(\"d \") def foo = {}" shouldNot compile
   }
+
+  "negate" should "compile with valid params" in {
+    "@negate(\"bar\") def foo = true" should compile
+    "@negate(\"HJSDKHdsae7ewq8ewq\") def foo = true" should compile
+    "@negate(\"Hªdsa\") def foo = true" should compile
+  }
+
+  it should "not compile with invalid params" in {
+    "@negate(\"\") def foo = true" shouldNot compile
+    "@negate(\"  \") def foo = true" shouldNot compile
+    "@negate(\"dsajkdsa  dsajdsa\") def foo = true" shouldNot compile
+    "@negate(\"  d\") def foo = true" shouldNot compile
+    "@negate(\"d \") def foo = true" shouldNot compile
+  }
+
+//  Todo: Enable
+//  it should "not compile with non-boolean return" in {
+//    "@negate(\"\") def foo = 2" shouldNot compile
+//  }
 }
+
+

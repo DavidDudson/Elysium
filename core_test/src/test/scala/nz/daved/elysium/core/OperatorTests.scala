@@ -31,4 +31,12 @@ class OperatorTests extends FlatSpec with Matchers with BeforeAndAfter {
 
     testObject.numbers shouldEqual Seq(1, 3)
   }
+
+  "Negate" should "negate isEmpty" in {
+    testObject.isEmpty shouldBe true
+    testObject.nonEmpty shouldBe false
+    testObject.add(3)
+    testObject.isEmpty shouldBe false
+    testObject.nonEmpty shouldBe true
+  }
 }

@@ -66,3 +66,32 @@ class alias(nameArg: String) extends StaticAnnotation {
     q"$defn; $newMethod"
   }
 }
+
+/**
+  * Negates a boolean returning method, must give a name
+  *
+  * Todo: Validate that the method is actually a boolean resulting method
+  */
+@compileTimeOnly("@alias not expanded")
+class negate(nameArg: String) extends StaticAnnotation {
+  inline def apply(defn: Any): Any = meta {
+    val q"new $_(${arg: Lit})" = this
+
+    if (arg.name.isEmpty) {
+      abort(s"Duplicate method name must be non-empty")
+    }
+
+    if (arg.containsWhitespace) {
+      abort(s"'${arg.name}' contains whitespace and cannot be used as a method name")
+    }
+
+    val newMethod = defn match {
+      case q"..$mods def $_[..$tparams](...$paramss): $tpeopt = $expr" =>
+        q"..$mods def ${arg.asTermName}[..$tparams](...$paramss): $tpeopt = !$expr"
+      case _ =>
+        abort("@negate only supports single expressions currently")
+    }
+
+    q"$defn; $newMethod"
+  }
+}

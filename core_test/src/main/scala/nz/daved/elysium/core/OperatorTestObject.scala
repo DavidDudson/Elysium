@@ -13,4 +13,7 @@ case class OperatorTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer())
   @operator("++")
   def combine(is: Seq[Int]): ArrayBuffer[Int] = numbers ++= is
 
+  @negate("nonEmpty")
+  def isEmpty: Boolean = numbers.isEmpty
+
 }
