@@ -55,8 +55,9 @@ lazy val manipulate = (project in file("manipulate"))
   .settings(commonSettings: _*)
   .settings(macroSettings: _*)
 
-lazy val manipulateTest = (project in file("manipulate_test"))
+lazy val validate = (project in file("validate"))
   .settings(commonSettings: _*)
+  .settings(macroSettings: _*)
   .dependsOn(manipulate)
 
 lazy val debug = (project in file("debug"))
@@ -69,6 +70,24 @@ lazy val debugTest = (project in file("debug_test"))
   .settings(commonSettings: _*)
   .dependsOn(debug)
 
+lazy val profile = (project in file("profile"))
+  .settings(commonSettings: _*)
+  .settings(macroSettings: _*)
+  .dependsOn(gen, core)
+
+lazy val profileTest = (project in file("profile_test"))
+  .settings(commonSettings: _*)
+  .dependsOn(profile)
+
+lazy val log = (project in file("log"))
+  .settings(commonSettings: _*)
+  .settings(macroSettings: _*)
+  .dependsOn(gen, core)
+
+lazy val logTest = (project in file("log_test"))
+  .settings(commonSettings: _*)
+  .dependsOn(log)
+
 lazy val misc = (project in file("misc"))
   .settings(commonSettings: _*)
   .settings(macroSettings: _*)
@@ -78,7 +97,16 @@ lazy val miscTest = (project in file("misc_test"))
   .settings(commonSettings: _*)
   .dependsOn(misc)
 
+lazy val test = (project in file("test"))
+  .settings(commonSettings: _*)
+  .settings(macroSettings: _*)
+  .dependsOn(gen, manipulate)
+
+lazy val testTest = (project in file("test_test"))
+  .settings(commonSettings: _*)
+  .dependsOn(test, manipulate)
+
 lazy val all = (project in file("all"))
     .settings(Seq(aggregate in update := false))
-    .aggregate(gen, core, verify, manipulate, debug, misc)
+    .aggregate(gen, core, verify, manipulate, validate, test, debug, misc)
 
