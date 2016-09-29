@@ -3,9 +3,9 @@ package nz.daved.elysium.core
 import org.scalatest.{FlatSpec, Matchers, BeforeAndAfter}
 
 
-class OperatorTests extends FlatSpec with Matchers with BeforeAndAfter {
+class RenamingTests extends FlatSpec with Matchers with BeforeAndAfter {
 
-  var testObject = OperatorTestObject()
+  var testObject = RenamingTestObject()
 
   before {
      testObject.numbers.clear

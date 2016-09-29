@@ -2,7 +2,7 @@ package nz.daved.elysium.core
 
 import org.scalatest.{FlatSpec, Matchers}
 
-class operatorCompileTest extends FlatSpec with Matchers {
+class RenamingCompileTest extends FlatSpec with Matchers {
 
   "@operator" should "compile with valid params" in {
     "@operator(\"+\") def foo = {}" should compile

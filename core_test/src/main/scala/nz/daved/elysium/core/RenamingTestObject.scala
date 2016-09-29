@@ -2,7 +2,7 @@ package nz.daved.elysium.core
 
 import scala.collection.mutable.ArrayBuffer
 
-case class OperatorTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer()) {
+case class RenamingTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer()) {
 
   @operator("+|")
   def prepend(i: Int): Unit = numbers.prepend(i)
