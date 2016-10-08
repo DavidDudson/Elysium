@@ -14,7 +14,7 @@ trait ClassManipulation {
         case Defn.Class(_, _, _, _, t@Template(_, _, _, stats)) =>
           clazz.copy(templ = t.copy(stats.getOrElse(Nil) :+ stat))
         case _ =>
-          throw new IllegalStateException(s"appendStat does not support $clazz")
+          abort(s"appendStat does not support $clazz")
       }
     }
 
@@ -27,7 +27,7 @@ trait ClassManipulation {
         case Defn.Class(_, _, _, _, t@Template(_, _, _, stats)) =>
           clazz.copy(templ = t.copy(stats = Some(newStats ++ stats.getOrElse(Nil))))
         case _ =>
-          throw new IllegalStateException(s"prependStat does not support $clazz")
+          abort(s"prependStat does not support $clazz")
       }
     }
   }

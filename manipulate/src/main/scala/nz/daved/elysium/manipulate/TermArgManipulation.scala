@@ -7,8 +7,10 @@ import scala.meta._
 trait TermArgManipulation {
   implicit class TermArgImplicits(termArg: Term.Arg) extends HasName {
     override val name: String = termArg match {
-      case Term.Arg.Named(argName, _) => argName.name
-      case term => sys.error(s"Cannot retrieve name from: ${term.show[Syntax]} as it is not supported yet")
+      case Term.Arg.Named(argName, _) =>
+        argName.name
+      case term =>
+        abort(s"Cannot retrieve name from: ${term.show[Syntax]} as it is not supported yet")
     }
   }
 }

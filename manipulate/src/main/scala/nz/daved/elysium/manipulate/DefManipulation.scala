@@ -12,6 +12,8 @@ trait DefManipulation {
           defn.copy(body = Term.Block(stats :+ stat))
         case Defn.Def(_,_,_,_,_, singleStat) =>
           defn.copy(body = Term.Block(singleStat :: stat :: Nil))
+        case _ =>
+          abort("append stat noes not support this class pattern")
       }
     }
 
@@ -22,6 +24,8 @@ trait DefManipulation {
           defn.copy(body = Term.Block(stat +: stats))
         case Defn.Def(_,_,_,_,_, singleStat) =>
           defn.copy(body = Term.Block(stat :: singleStat :: Nil))
+        case _ =>
+          abort("prepend stat noes not support this class pattern")
       }
     }
 
@@ -32,7 +36,9 @@ trait DefManipulation {
 
 
     // TODO: Make HasName a typeclass and use that instead
-    def rename(n: String): Defn.Def = rename(Term.Name(n))
+    def rename(n: String): Defn.Def =
+      rename(Term.Name(n))
+
     def rename(n: Term.Name): Defn.Def =
       defn.copy(name = n)
   }

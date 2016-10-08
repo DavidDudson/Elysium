@@ -21,7 +21,7 @@ import scala.meta._
   */
 @compileTimeOnly("@operator not expanded")
 class operator(nameArg: String) extends StaticAnnotation {
-  inline def apply(defn: Any): Any = meta {
+  inline def apply(a: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 
     if (arg.containsWhitespace) {
@@ -32,9 +32,13 @@ class operator(nameArg: String) extends StaticAnnotation {
       abort(s"'${arg.name}' is not symbolic and cannot be used as an operator")
     }
 
-    val newMethod: Defn.Def = defn.asInstanceOf[Defn.Def].rename(arg.asTermName)
-
-    q"$defn; $newMethod"
+    a match {
+      case defn: Defn.Def =>
+        val newMethod: Defn.Def = defn.rename(arg.asTermName)
+        q"$defn; $newMethod"
+      case _ =>
+        abort("@operator only supports defs")
+    }
   }
 }
 
@@ -50,7 +54,7 @@ class operator(nameArg: String) extends StaticAnnotation {
   */
 @compileTimeOnly("@alias not expanded")
 class alias(nameArg: String) extends StaticAnnotation {
-  inline def apply(defn: Any): Any = meta {
+  inline def apply(a: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 
     if (arg.name.isEmpty) {
@@ -61,9 +65,13 @@ class alias(nameArg: String) extends StaticAnnotation {
       abort(s"'${arg.name}' contains whitespace and cannot be used as a method name")
     }
 
-    val newMethod: Defn.Def = defn.asInstanceOf[Defn.Def].rename(arg.asTermName)
-
-    q"$defn; $newMethod"
+    a match {
+      case defn: Defn.Def =>
+        val newMethod: Defn.Def = defn.rename(arg.asTermName)
+        q"$defn; $newMethod"
+      case _ =>
+        abort("@operator only supports defs")
+    }
   }
 }
 
@@ -74,7 +82,7 @@ class alias(nameArg: String) extends StaticAnnotation {
   */
 @compileTimeOnly("@alias not expanded")
 class negate(nameArg: String) extends StaticAnnotation {
-  inline def apply(defn: Any): Any = meta {
+  inline def apply(a: Any): Any = meta {
     val q"new $_(${arg: Lit})" = this
 
     if (arg.name.isEmpty) {
@@ -85,13 +93,12 @@ class negate(nameArg: String) extends StaticAnnotation {
       abort(s"'${arg.name}' contains whitespace and cannot be used as a method name")
     }
 
-    val newMethod = defn match {
+    a match {
       case q"..$mods def $_[..$tparams](...$paramss): $tpeopt = $expr" =>
-        q"..$mods def ${arg.asTermName}[..$tparams](...$paramss): $tpeopt = !$expr"
+        val newMethod = q"..$mods def ${arg.asTermName}[..$tparams](...$paramss): $tpeopt = !$expr"
+        q"$a; $newMethod"
       case _ =>
-        abort("@negate only supports single expressions currently")
+        abort("@negate only supports single expression defs currently")
     }
-
-    q"$defn; $newMethod"
   }
 }

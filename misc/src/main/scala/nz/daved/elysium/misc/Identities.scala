@@ -11,10 +11,12 @@ class identity extends StaticAnnotation {
 
 @compileTimeOnly("@copyDef not expanded")
 class copyDef extends StaticAnnotation {
-  implicit inline def apply(a: Any): Any = meta {
+  inline def apply(a: Any): Any = meta {
     a match {
-      case defn: Defn.Def => defn.copy()
-      case _ => abort("@copyDef only supports Defn")
+      case defn: Defn.Def =>
+        defn.copy()
+      case _ =>
+        abort("@copyDef only supports Defn")
     }
   }
 }
