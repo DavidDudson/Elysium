@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.typesafeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
-  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M5" cross CrossVersion.full),
+  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-beta4" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0",
   updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
@@ -22,7 +22,7 @@ lazy val commonSettings = Seq(
 
 // Macro setting is any module that has macros, or manipulates meta trees
 lazy val macroSettings = Seq(
-  libraryDependencies += "org.scalameta" %% "scalameta" % "1.1.0"
+  libraryDependencies += "org.scalameta" %% "scalameta" % "1.4.0"
 )
 
 lazy val gen = (project in file("gen"))
