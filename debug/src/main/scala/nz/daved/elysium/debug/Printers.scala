@@ -1,23 +1,25 @@
 package nz.daved.elysium.debug
 
+import nz.daved.elysium.gen.macroAnnotation
 import pprint._
 
-import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.meta._
 
-@compileTimeOnly("@printStructure not expanded")
-class printStructure extends StaticAnnotation {
-  inline def apply(defn: Any): Any = meta {
+object Printers {
+
+  @macroAnnotation
+  def printStructure(defn: Stat): Stat = {
     pprintln(defn.show[Structure])
     defn
   }
-}
 
-@compileTimeOnly("@printSyntax not expanded")
-class printSyntax extends StaticAnnotation {
-  inline def apply(defn: Any): Any = meta {
+  @macroAnnotation
+  def printSyntax(defn: Stat): Stat = {
     pprintln(defn.show[Syntax])
     defn
   }
 }
+
+
+
 

@@ -1,6 +1,7 @@
 package nz.daved.elysium.test
 
 import scala.meta._
+import nz.daved.elysium.test.MacroStateStore._
 
 @storeStateString("initial")
 case class StoreStringTestObject() {

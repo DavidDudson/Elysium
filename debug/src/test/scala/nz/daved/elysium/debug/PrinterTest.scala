@@ -2,6 +2,8 @@ package nz.daved.elysium.debug
 
 import org.scalatest.{FlatSpec, Matchers}
 
+import Printers._
+
 class PrinterTest extends FlatSpec with Matchers {
 
   "@printStructure" should "compile" in {

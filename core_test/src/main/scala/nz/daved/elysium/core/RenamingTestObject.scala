@@ -2,6 +2,8 @@ package nz.daved.elysium.core
 
 import scala.collection.mutable.ArrayBuffer
 
+import Renamed._
+
 case class RenamingTestObject(var numbers: ArrayBuffer[Int] = new ArrayBuffer()) {
 
   @operator("+|")

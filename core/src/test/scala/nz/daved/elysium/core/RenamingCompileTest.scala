@@ -1,6 +1,7 @@
 package nz.daved.elysium.core
 
 import org.scalatest.{FlatSpec, Matchers}
+import Renamed._
 
 class RenamingCompileTest extends FlatSpec with Matchers {
 

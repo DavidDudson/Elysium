@@ -2,6 +2,8 @@ package nz.daved.elysium.misc
 
 import org.scalatest.{FlatSpec, Matchers}
 
+import nz.daved.elysium.misc.Indentities._
+
 class IdentitiesTest extends FlatSpec with Matchers {
 
   "@identity" should "compile" in {
@@ -15,7 +17,11 @@ class IdentitiesTest extends FlatSpec with Matchers {
     "@identity sealed trait SomeSealedTrait" should compile
   }
 
-  "@copy" should "compile" in {
+  "@copyDef" should "compile" in {
     "@copyDef def main() = \"\"" should compile
+  }
+
+  "@copyDef" should "not compile" in {
+    "@copyDef val main = \"\"" shouldNot compile
   }
 }

@@ -185,7 +185,7 @@ Some/All of this may end up in the scala.meta library semantic api
 - [ ] @Enum - A scala enum type, the way it should have been
 - [ ] @Refine(a, b) - generates "def b(params) = super.a(params)"
 - [x] @Operator(symbol) - generate a method with the symbolic operator
-- [ ] @Mirror(name) - generate a second method/class identical but with a different name
+- [x] @Alias(name) - generate a second method/class identical but with a different name
 
 ## Def Macros
 - TBD

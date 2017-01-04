@@ -51,7 +51,7 @@ the project at the moment because once I can parse/generate inline macros
 I will be rewriting all existing macros.
 
 - [x] Argument Macros
-- [ ] Inline Generation (Macros generating macros)
+- [x] Inline Generation (Macros generating macros)
 - [ ] Macro Testing framework
 - [ ] Semantic API
 - [x] Multiple Annotations
