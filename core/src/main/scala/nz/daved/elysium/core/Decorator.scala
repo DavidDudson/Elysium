@@ -9,7 +9,7 @@ import scala.meta._
 @compileTimeOnly("@before not expanded")
 class before(fun: () => Unit) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
-    val q"new $_(() => ${apply: Term.Apply})" = this
+    val q"new $_(${apply: Term.Apply})" = this
     defn.asInstanceOf[Def].prependStat(apply)
   }
 }
@@ -17,7 +17,7 @@ class before(fun: () => Unit) extends StaticAnnotation {
 @compileTimeOnly("@after not expanded")
 class after(fun: () => Unit) extends StaticAnnotation {
   inline def apply(defn: Any): Any = meta {
-    val q"new $_(() => ${apply: Term.Apply})" = this
+    val q"new $_(${apply: Term.Apply})" = this
     defn.asInstanceOf[Def].appendStat(apply)
   }
 }
