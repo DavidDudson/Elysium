@@ -3,7 +3,7 @@ name := "Elysium"
 lazy val commonSettings = Seq(
   version := "1.0",
   scalaVersion := "2.11.8",
-  scalacOptions += "-Xplugin:/home/davidd/.m2/repository/org/scalameta/paradise_2.11.8/3.0.0-SNAPSHOT/paradise_2.11.8-3.0.0-SNAPSHOT.jar",
+//  scalacOptions += "-Xplugin:/home/davidd/.m2/repository/org/scalameta/paradise_2.11.8/3.0.0-SNAPSHOT/paradise_2.11.8-3.0.0-SNAPSHOT.jar",
   scalacOptions += "-Xplugin-require:macroparadise",
   scalacOptions += "-Xlint:_",
   scalacOptions += "-Ywarn-unused-import",
@@ -14,7 +14,8 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.typesafeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
-//  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-beta4" cross CrossVersion.full),
+  resolvers += Resolver.bintrayIvyRepo("scalameta", "maven"),
+  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-157" cross CrossVersion.full),
   libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0",
   updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
