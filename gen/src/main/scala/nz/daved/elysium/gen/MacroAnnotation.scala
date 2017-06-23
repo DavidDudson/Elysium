@@ -2,7 +2,7 @@ package nz.daved.elysium.gen
 
 import scala.annotation.StaticAnnotation
 import scala.collection.immutable._
-import scala.meta.dialects.Paradise211
+import scala.meta.dialects.Paradise212
 import nz.daved.elysium.manipulate.Implicits._
 
 import scala.meta._
@@ -48,7 +48,7 @@ import scala.meta._
   * class foo[T](_baz: String) extends StaticAnnotation {
   *   inline def apply(a: Any): Any = meta {
   *      val baz: String = this match {
-  *        case q"new $_(Lit(s: String)))" =>
+  *        case q"new $_(Lit.String(s: String)))" =>
   *          s
   *        case _ =>
   *          abort(expected 'baz' to be a string literal)
@@ -68,7 +68,7 @@ import scala.meta._
   * class MACRONAME[T](_ARGNAME: ARGTYPE) extends StaticAnnotation {
   *   inline def apply(a: Any): Any = meta {
   *      val ARGNAME: ARGTYPE = this match {
-  *        case q"new $_(Lit(s: ARGTYPE)))" =>
+  *        case q"new $_(Lit.String(s: ARGTYPE)))" =>
   *          s
   *        case _ =>
   *          abort(expected 'ARGNAME' to be a string literal)
@@ -153,7 +153,7 @@ object MethodExtractor {
 object macroAnnotation {
 
   def buildCompileTimeOnly(details: MacroAnnotationDetails): Mod = {
-    val annotationLit = Lit(s"@${details.macroName} not expanded")
+    val annotationLit = Lit.String(s"@${details.macroName} not expanded")
     mod"@scala.annotation.compileTimeOnly($annotationLit)"
   }
 
@@ -176,8 +176,8 @@ object macroAnnotation {
         case _ => abortT(a, "Unsupported type for argument in macro")
       }
 
-      val matcherAbortLit = Lit(s"Args did not match the input")
-      val litExtractor = p"Lit(i: $argsType)"
+      val matcherAbortLit = Lit.String(s"Args did not match the input")
+      val litExtractor = p"Lit.String(i: $argsType)"
       val patternCase = p"case Term.New(Template(_, Seq(Term.Apply(_, Seq($litExtractor))), _, _)) => i"
       val defaultCase = p"case _ => abort($matcherAbortLit)"
 
@@ -187,7 +187,7 @@ object macroAnnotation {
 
   def buildTypeMatcher(details: MacroAnnotationDetails): Term.Match = {
     val pat = Pat.Var.Term(Term.Name(details.treeName))
-    val matcherAbortLit = Lit(s"expected input tree of type ${details.treeType.syntax}")
+    val matcherAbortLit = Lit.String(s"expected input tree of type ${details.treeType.syntax}")
     val argNames = details.args.map(n => Term.Name(n.name.value))
     val treeApply = Term.Apply(Term.Name(details.macroName), Seq(Term.Name(details.treeName)))
     val macroFunctionCall =  argNames match {

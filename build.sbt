@@ -2,8 +2,7 @@ name := "Elysium"
 
 lazy val commonSettings = Seq(
   version := "1.0",
-  scalaVersion := "2.11.8",
-//  scalacOptions += "-Xplugin:/home/davidd/.m2/repository/org/scalameta/paradise_2.11.8/3.0.0-SNAPSHOT/paradise_2.11.8-3.0.0-SNAPSHOT.jar",
+  scalaVersion := "2.12.2",
   scalacOptions += "-Xplugin-require:macroparadise",
   scalacOptions += "-Xlint:_",
   scalacOptions += "-Ywarn-unused-import",
@@ -14,9 +13,9 @@ lazy val commonSettings = Seq(
   resolvers += Resolver.typesafeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("releases"),
   resolvers += Resolver.sonatypeRepo("snapshots"),
-  resolvers += Resolver.bintrayIvyRepo("scalameta", "maven"),
-  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-157" cross CrossVersion.full),
-  libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.0",
+  resolvers += Resolver.bintrayRepo("scalameta", "maven"),
+  addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0-M8" cross CrossVersion.full),
+  libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0",
   updateOptions := updateOptions.value.withCachedResolution(true),
   coverageHighlighting := false,
   coverageEnabled := true
@@ -24,7 +23,7 @@ lazy val commonSettings = Seq(
 
 // Macro setting is any module that has macros, or manipulates meta trees
 lazy val macroSettings = Seq(
-  libraryDependencies += "org.scalameta" %% "scalameta" % "1.4.0"
+  libraryDependencies += "org.scalameta" %% "scalameta" % "1.8.0"
 )
 
 lazy val gen = (project in file("gen"))
@@ -66,7 +65,6 @@ lazy val validate = (project in file("validate"))
 lazy val debug = (project in file("debug"))
   .settings(commonSettings: _*)
   .settings(macroSettings: _*)
-  .settings(libraryDependencies += "com.lihaoyi" %% "pprint" % "0.4.1")
   .dependsOn(gen, core)
 
 lazy val debugTest = (project in file("debug_test"))
@@ -112,4 +110,3 @@ lazy val testTest = (project in file("test_test"))
 lazy val all = (project in file("all"))
     .settings(Seq(aggregate in update := false))
     .aggregate(gen, core, verify, manipulate, validate, test, debug, misc)
-

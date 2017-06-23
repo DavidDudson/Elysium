@@ -23,7 +23,7 @@ object MacroStateStore {
     }
 
     val stateNameTerm: Pat.Var.Term = Pat.Var.Term(Term.Name(stateName ++ "State"))
-    val stat = Defn.Val(Nil, stateNameTerm :: Nil, None, Lit(clazz.structure))
+    val stat = Defn.Val(Nil, stateNameTerm :: Nil, None, Lit.String(clazz.structure))
 
     clazz.prependStats(q"import scala.meta._".asInstanceOf[Stat], stat)
   }
@@ -44,7 +44,7 @@ object MacroStateStore {
     }
 
     val stateNameTerm: Pat.Var.Term = Pat.Var.Term(Term.Name(stateName ++ "State"))
-    val stat = Defn.Val(Nil, stateNameTerm :: Nil, None, q"${Lit(clazz.structure)}.parse[Term].get".asInstanceOf[Term])
+    val stat = Defn.Val(Nil, stateNameTerm :: Nil, None, q"${Lit.String(clazz.structure)}.parse[Term].get".asInstanceOf[Term])
 
     clazz.prependStats(q"import scala.meta._".asInstanceOf[Stat], stat)
   }
